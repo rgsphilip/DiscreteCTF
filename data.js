@@ -20,11 +20,13 @@ var getDataForSet1 = function() {
     }
 }
 var getDataForSet2 = function() {
-    var set = setGenerate(5, 5),
+    var set = setGenerate(5, 6),
         setAns1 = setRemoveElem(set, 1),
         setAns2 = setRemoveElem(set, 2),
         setAns3 = setRemoveElem(setAns1, 1),
         setAns4 = set,
+        setAns5 = setRemoveDups(set),
+        setArray = [setAns1, setAns2, ]
         setStringQ = setPrint(set);
     return {
         set : set,
@@ -41,8 +43,17 @@ var generateDynamicData = function() {
     };
 };
 
-var answerbox = '<form>Answer: <input type="text" name="answer" value=""> </form>';
-var multChoice = '<form>Pick the correct answer(s): <input type="checkbox" name="answer" value=""> </form>';
+var answerbox = '<form>Answer: <input type="text" name="answer" value=""></form>';
+var multChoiceFunc = function(num, array) {
+    var result = '<form class="multChoice">Pick the correct answer(s): <br>';
+    for(var i = 0; i < num; i++) {
+        result+= '<input type="checkbox" name="answer" value="">' + array[i] + '<br>';
+    }
+    result+= '</form>';
+    return result
+}
+
+var multChoice5 = multChoiceFunc(5);
 
 var dynamicData = generateDynamicData();
 
@@ -59,7 +70,7 @@ var data = {
         title: "Set Theory - Subsets",
         text: "A set can be a subset of another set. For example, A = {1, 2, 3, 4, 5} is a subset of the natural numbers, because all of A’s elements are contained in the natural numbers. However, B = {1, 2, 3, 4, 5.5} would not be a subset of the natural numbers, since 5.5 is not a member of the natural numbers. \n\nA set is a subset of itself - since all of A’s elements are in the set A, it is considered to be a subset of itself. A proper subset of a set is a subset that excludes at least one member of the set. Thus, B = {1, 2, 3, 4} is considered to be a proper subset of A, but A cannot be a proper subset of itself.",
         question : "Select the items that are subsets, but NOT  proper subsets, of " + dynamicData["sets2"].setStringQ + " :",
-        answerType: multChoice
+        answerType: multChoice5
         //solution: dynamicData["sets2"].answer
     },
     
@@ -94,7 +105,7 @@ function setContent(ix) {
     $('.learnTitle').text(data[topics[ix]].title);
     $('.learnContent').html(data[topics[ix]].text);
     $('.learnQuestion').text(data[topics[ix]].question);
-    $('.learnAnswer').replaceWith(data[topics[ix]].answerType);
+    $('.learnAnswer').replaceWith($(data[topics[ix]].answerType).addClass('learnAnswer'));
 
 }
 setContent(topicIndex);

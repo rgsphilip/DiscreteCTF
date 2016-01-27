@@ -13,7 +13,6 @@ var setGenerate = function(cardinality, display) {
         return;
     }
     var result = _.sampleSize(setAlphabet, cardinality);
-    debugger;
     if (display === cardinality) {
         return result;
     } else {
