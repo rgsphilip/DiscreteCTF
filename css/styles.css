@@ -1,0 +1,119 @@
+/* GENERAL ******************************/
+* {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav a:link, a:visited {
+    color: lightcyan;
+}
+
+nav a:hover, a:active {
+    color: white;
+}
+
+img {
+    max-width: 200px;
+}
+
+header {
+ background: #bce7e5;
+ border-color: #599a68;
+ margin: 0 0 30px 0;
+ padding: 5px 0 0 0;
+ width: 100%;
+}
+
+footer {
+    
+    background: lightseagreen;
+    width: 100%;
+    color: lightcyan;
+    bottom: 0;
+    margin-top: 20px
+}
+
+/* NAVIGATION BAR ****************************/
+
+nav {
+    padding: 0 0;
+    margin: 0 0 0;
+    background: lightseagreen;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    padding: 0 30px 0 0;
+}
+
+nav a {
+    padding: 15px 10px;
+}
+
+
+/*INDEX *************************************/
+.logIn,
+.signUp {
+    text-align: center;
+}
+
+.subtitle {
+    font-family: 'Lobster', Cursive, Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+}
+
+
+.welcome {
+    text-align: center;
+    margin: 10px;
+    padding: 0 2%;
+}
+
+.wrap {
+    min-height: calc(100vh - 50px);
+}
+
+/* DASHBOARD *****************************************/
+.dash {
+    text-align: center;
+}
+.dash h2 {
+    margin-bottom: 20px;
+}
+
+/* LEARN *********************************************/
+
+.nextButton {
+    float: right;
+}
+
+.learnText {
+    font-size: 1.2em;
+    padding-bottom: 20px;
+}
+
+.learnContent {
+    padding-right: 80px;
+    white-space: pre-line; 
+}
+
+.learnTitle,
+.checkpointQ {
+    text-decoration: underline;
+}
+
+.learnAnswer {
+    margin: 20px 0px;
+}
+
+.checkButton {
+    margin-top: 10px;
+}
