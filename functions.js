@@ -37,6 +37,16 @@ var setPrint = function(array) {
 }
 window.setPrint = setPrint;
 
+var setArrayPrint = function(array) {
+    //array is an array of setArrays. returns an array of setArrays strings appropriate for printing.
+    var result = [];
+    var len = array.length;
+    for(var i = 0; i < len; i++) {
+        result.push(setPrint(array[i]));
+    }
+    return result;
+}
+
 var setRemoveElem = function(arrayInput, numRemove) {
     var array = _.clone(arrayInput);
     //removes numRemove number of elements from array
@@ -68,25 +78,28 @@ var setAddNewElem = function(array, numAdd) {
 
 
 //TESTS 
-
-/*var x = setGenerate(5, 5);
-console.log(x);
-console.log(setPrint(x));
+/*
+var x = setGenerate(5, 5);
+//console.log(x);
+//console.log(setPrint(x));
 setRemoveElem(x, 2);
-console.log(setPrint(x));
+//console.log(setPrint(x));
 
 var y = setGenerate(5, 7);
-console.log(y);
-console.log(setPrint(y));
+// console.log(y);
+// console.log(setPrint(y));
 setRemoveElem(y, 3);
-console.log(setPrint(y));
+//console.log(setPrint(y));
 
-var z = setGenerate(5, 4);
+//var z = setGenerate(5, 4);
 
 
 var a = setGenerate(5,7);
-console.log(setPrint(a));
+//console.log(setPrint(a));
 var b = setRemoveDups(a);
-console.log(setPrint(b));
-*/
+//console.log(setPrint(b));
 
+var setArraytest = [x, y, a, b];
+console.log(setArrayPrint(setArraytest));
+
+*/

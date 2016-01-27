@@ -9,6 +9,16 @@ var topics = [
     'sets4'
 ]
 
+var answerbox = '<form>Answer: <input type="text" name="answer" value=""></form>';
+var multChoiceFunc = function(num, array) {
+    var result = '<form class="multChoice">Pick the correct answer(s): <br>';
+    for(var i = 0; i < num; i++) {
+        result+= '<input type="checkbox" name="answer" value="">' + array[i] + '<br>';
+    }
+    result+= '</form>';
+    return result
+}
+
 var getDataForSet1 = function() {
     var set = setGenerate(5, 6),
         setString = setPrint(set),
@@ -20,17 +30,16 @@ var getDataForSet1 = function() {
     }
 }
 var getDataForSet2 = function() {
-    var set = setGenerate(5, 6),
-        setAns1 = setRemoveElem(set, 1),
-        setAns2 = setRemoveElem(set, 2),
-        setAns3 = setRemoveElem(setAns1, 1),
-        setAns4 = set,
-        setAns5 = setRemoveDups(set),
-        setArray = [setAns1, setAns2, ]
-        setStringQ = setPrint(set);
+    var question = setGenerate(5, 6),
+        ans1 = setRemoveElem(question, 1),
+        ans2 = setRemoveElem(ans1, 2),
+        ans3 = setRemoveElem(ans2, 1),
+        ans4 = question,
+        ans5 = setRemoveDups(question),
+        ansArray = [ans1, ans2, ans3, ans4, ans5];
     return {
-        set : set,
-        setStringQ : setStringQ
+        printQ : setPrint(question),
+        printAnsArray : multChoiceFunc(5, setArrayPrint(ansArray))
     }
         
 }
@@ -42,18 +51,6 @@ var generateDynamicData = function() {
         sets2 : getDataForSet2()
     };
 };
-
-var answerbox = '<form>Answer: <input type="text" name="answer" value=""></form>';
-var multChoiceFunc = function(num, array) {
-    var result = '<form class="multChoice">Pick the correct answer(s): <br>';
-    for(var i = 0; i < num; i++) {
-        result+= '<input type="checkbox" name="answer" value="">' + array[i] + '<br>';
-    }
-    result+= '</form>';
-    return result
-}
-
-var multChoice5 = multChoiceFunc(5);
 
 var dynamicData = generateDynamicData();
 
@@ -69,9 +66,9 @@ var data = {
     sets2 : {
         title: "Set Theory - Subsets",
         text: "A set can be a subset of another set. For example, A = {1, 2, 3, 4, 5} is a subset of the natural numbers, because all of A’s elements are contained in the natural numbers. However, B = {1, 2, 3, 4, 5.5} would not be a subset of the natural numbers, since 5.5 is not a member of the natural numbers. \n\nA set is a subset of itself - since all of A’s elements are in the set A, it is considered to be a subset of itself. A proper subset of a set is a subset that excludes at least one member of the set. Thus, B = {1, 2, 3, 4} is considered to be a proper subset of A, but A cannot be a proper subset of itself.",
-        question : "Select the items that are subsets, but NOT  proper subsets, of " + dynamicData["sets2"].setStringQ + " :",
-        answerType: multChoice5
-        //solution: dynamicData["sets2"].answer
+        question : "Select the items that are subsets, but NOT  proper subsets, of " + dynamicData["sets2"].printQ + " :",
+        answerType: dynamicData["sets2"].printAnsArray,
+        // solution: dynamicData["sets2"].answer
     },
     
     sets3 : {
@@ -109,12 +106,6 @@ function setContent(ix) {
 
 }
 setContent(topicIndex);
-
-// function setupAnswers(ix) {
-//     $('.learnAnswer') // clear all children
-// //    data[topics[ix]].questions[0].answers // loop through answers, add an input for each one (for multiple choice)
-//     $('.learnAnswer').append('<form>Answer: <input type="text" name="answer" value="" placeholder="A"></input></form>');
-// }
 
 $('.nextButton').click(function() {
     if(topicIndex < len)
