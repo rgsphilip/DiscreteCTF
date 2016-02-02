@@ -2,9 +2,39 @@
 //About SETS: The underlying data structure of these sets is actually an array (not a set!).
 //This decision was made so that duplicate elements could easily be displayed.
 
+
+// SET NOTATION STRINGS
+var un = "\u{222A}";
+window.un = un;
+var inter = "\u{2229}";
+window.inter = inter;
+var comp = "C".sup();
+window.comp = comp;
+var universal = "<b>U</b>";
+window.universal = universal;
+var empty = "\u{2205}";
+window.empty = empty;
+
+// SET ALPHABET (elements that can appear in sets)
 var setAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'v', 'w', 'x', 'y', 'z'];
 window.setAlphabet = setAlphabet;
 
+// ANSWER TYPES (different types of answers that the Checkpoint Questions will answer)
+var answerBox = '<form>Answer: <input type="text" name="answer" value=""></form>';
+window.answerbox = answerBox;
+
+var checkBoxFunc = function(array) {
+    var result = '<form class="multChoice">Pick the correct answer(s): <br>';
+    len = array.length;
+    for(var i = 0; i < len; i++) {
+        result+= '<input type="checkbox" name="answer" value="">' + array[i] + '<br>';
+    }
+    result+= '</form>';
+    return result
+}
+window.multChoiceFunc = checkBoxFunc;
+
+// FUNCTIONS FOR SETS
 var setGenerate = function(cardinality, display) {
     //randomly generates an array from the setAlphabet
     //cardinality is the number of elements truly in the set. display is the number of elements displayed to the user.
