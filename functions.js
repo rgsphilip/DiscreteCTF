@@ -4,35 +4,49 @@
 
 
 // SET NOTATION STRINGS
-var un = "\u{222A}";
+var un = katex.renderToString("\\cup");
 window.un = un;
-var inter = "\u{2229}";
+var inter = katex.renderToString("\\cap");
 window.inter = inter;
 var comp = "C".sup();
 window.comp = comp;
-var universal = "<b>U</b>";
+var universal = katex.renderToString("{\\text{U}}");
 window.universal = universal;
-var empty = "\u{2205}";
+var empty = katex.renderToString("\\emptyset");
 window.empty = empty;
-
+var subset = katex.renderToString("\\subseteq");
+window.subset = subset;
+var properSubset = katex.renderToString("\\subset");
+window.properSubset = properSubset;
 // SET ALPHABET (elements that can appear in sets)
 var setAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'v', 'w', 'x', 'y', 'z'];
 window.setAlphabet = setAlphabet;
 
 // ANSWER TYPES (different types of answers that the Checkpoint Questions will answer)
-var answerBox = '<form>Answer: <input type="text" name="answer" value=""></form>';
+var answerBox = '<form class="textAns">Answer: <input type="text" name="answer" value=""></form>';
 window.answerbox = answerBox;
 
 var checkBoxFunc = function(array) {
-    var result = '<form class="multChoice">Pick the correct answer(s): <br>';
+    var result = '<form class="checkboxAns">Pick the correct answer(s): <br>';
     len = array.length;
     for(var i = 0; i < len; i++) {
-        result+= '<input type="checkbox" name="answer" value="">' + array[i] + '<br>';
+        result+= '<input type="checkbox" name="answer" value="'+ i +'">' + array[i] + '<br>';
     }
     result+= '</form>';
     return result
 }
-window.multChoiceFunc = checkBoxFunc;
+window.checkBoxFunc = checkBoxFunc;
+
+var radioFunc = function(array) {
+    var result = '<form class="radioAns">Pick the correct answer: <br>';
+    len = array.length;
+    for(var i = 0; i < len; i++) {
+        result+= '<input type="radio" name="answer" value="">' + array[i] + '<br>';
+    }
+    result+= '</form>';
+    return result
+}
+window.radioFunc = radioFunc;
 
 // FUNCTIONS FOR SETS
 var setGenerate = function(cardinality, display) {
@@ -57,13 +71,13 @@ window.setGenerate = setGenerate;
 
 var setPrint = function(array) {
     //creates a string suitable for printing for the user
-    var result = "{";
+    var result = "\\{";
     var len = array.length - 1;
     for (var i = 0; i < len; i+=1) {
         result += array[i] + ", ";
     }
-    result += array[len] + "}";
-    return result;
+    result += array[len] + "\\}";
+    return katex.renderToString(result);
 }
 window.setPrint = setPrint;
 
