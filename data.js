@@ -65,7 +65,6 @@ $('.checkButton').click(function(){
     //There are 3 main types of questions to check: text answers, checkboxes, or radio buttons. This checks for which one, then handles checking the answer for correctness.
     if($('.checkAns form').hasClass("textAns")) {
         //if it's a text answer box:
-        console.log("it's a texbox");
         var $answer = parseInt($('.textAns input').val()); 
         if ($answer === data[topics[topicIndex]].answer) {
             goodJob();
@@ -73,10 +72,8 @@ $('.checkButton').click(function(){
             tryAgain();
         }
     } else if ($('.checkAns form').hasClass("checkboxAns")) {
-        console.log("it's a checkbox");
         //if it's a checkbox answer:
         var answerArray = data[topics[topicIndex]].answer; //contains the indices of the correct answers
-        console.log(answerArray);
         var rawAns = $('.checkboxAns input:checked'); //returns an array of the checked objects
         var userAns = [];
         for(var i = 0; i < rawAns.length; i++) {
@@ -84,13 +81,11 @@ $('.checkButton').click(function(){
         }
         var flag = true;
         if (userAns.length !== answerArray.length) {
-            console.log(userAns.length - answerArray.length);
             tryAgain();
             return;
         }
         for(var i = 0; i < userAns.length; i++) {
             if($.inArray(userAns[i], answerArray) === -1) {
-                console.log(userAns[i]);
                 tryAgain();
                 flag = false;
             }
@@ -100,7 +95,14 @@ $('.checkButton').click(function(){
         }
     } else if ($('.checkAns form').hasClass("radioAns")) {
         //if it's a radio button answer:
-        
+        var answer = data[topics[topicIndex]].answer; //contains the index of the correct answer
+        var rawAns = $('.radioAns input:checked'); //returns the checked object
+        var userAns = parseInt(rawAns[0].value);
+        if(userAns === answer) {
+            goodJob();
+        } else {
+            tryAgain();
+        }
     }
     
     

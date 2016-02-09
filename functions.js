@@ -41,7 +41,7 @@ var radioFunc = function(array) {
     var result = '<form class="radioAns">Pick the correct answer: <br>';
     len = array.length;
     for(var i = 0; i < len; i++) {
-        result+= '<input type="radio" name="answer" value="">' + array[i] + '<br>';
+        result+= '<input type="radio" name="answer" value="'+ i +'">' + array[i] + '<br>';
     }
     result+= '</form>';
     return result

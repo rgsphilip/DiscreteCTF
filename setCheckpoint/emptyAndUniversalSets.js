@@ -3,9 +3,16 @@
         //Generates the specific set used in the checkpoint question
         var set = setGenerate(10, 10),
             setString = setPrint(set),
-            answer = 10;
+            ans1 = "10 and 0",
+            ans2 = "10 and 1",
+            ans3 = "0 and 10",
+            ans4 = "1 and 10",
+            ans5 = "11 and 0",
+            ansArray = [ans1, ans2, ans3, ans4, ans5],
+            answer = 0;
         return {
             set : set,
+            printAnsArray : radioFunc(ansArray),
             setString: setString,
             answer: answer
         }
@@ -23,8 +30,8 @@
             title: title,
             text: text,
             question: question,
-            answerType: answerType,
-            answer: answer
+            answerType: set.printAnsArray,
+            answer: set.answer
         }     
     }
 
