@@ -1,16 +1,13 @@
 var topics = [
-    'setDefinition',
-    'subsets',
-    'emptyAndUniversalSets',
-    'unionIntersection'
+    'complementAndSetDifference'
 ]
 
 
 var data = {
-    setDefinition: setDefinition.questionAndAnswer(),
-    subsets: subsets.questionAndAnswer(),
-    emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
-    unionIntersection: unionIntersection.questionAndAnswer()
+    //setDefinition: setDefinition.questionAndAnswer(),
+    //subsets: subsets.questionAndAnswer(),
+    //emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
+    complementAndSetDifference: complementAndSetDifference.questionAndAnswer()
 }
 
 var topicIndex = 0;

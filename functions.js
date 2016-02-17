@@ -112,11 +112,58 @@ var setRemoveDups = function(array) {
 }
 
 
+var setUnion = function(arrayA, arrayB) {
+    //returns the union of arrayA and arrayB
+    return _.union(arrayA, arrayB);
+}
+
+var setIntersection = function(arrayA, arrayB) {
+    //returns the intersection of arrayA and arrayB
+    return _.intersection(arrayA, arrayB);
+}
+
+var setCardinality = function(array) {
+    //returns the cardinality of array (int)
+    return setRemoveDups(array).length;
+}
+
+var createSubsetOf = function(parentArray, cardinality) {
+    //returns a new array with cardinality unique elements, which is a subset of parentArray
+    var parentCardinality = setCardinality(parentArray)
+    if (cardinality > parentCardinality){
+        console.log("not enough elements in the superset to create a set this size");
+        return;
+    }
+    return _.sampleSize(parentArray, cardinality);    
+}
+
+var removeSubset = function(array, subset) {
+    //removes subset from array, returns a new array
+    var result = [];
+    var len = array.length;
+    for(var i = 0; i < len; i++) {
+        if($.inArray(array[i], subset) === -1) {
+            result.push(array[i]);
+        }
+    }
+    return setRemoveDups(result);
+}
+
+var symetricDifference = function(arrayA, arrayB) {
+    //returns the symetric difference of the A and B; 
+    //i,e., returns the union of A and B minus the intersection of A and B
+    var union = setUnion(arrayA, arrayB);
+    var intersection = setIntersection(arrayA, arrayB)
+    return removeSubset(union, intersection);
+}
+
+//var setDifference = set
+
 var setAddNewElem = function(array, numAdd) {
     //adds numAdd number of elements to array.
     //elements added were not previously in the array
     
-    
+        
 }
 
 
