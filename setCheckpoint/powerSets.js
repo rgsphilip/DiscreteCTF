@@ -20,8 +20,8 @@
 
     var questionAndAnswer = function () {
         // Learning text and checkpoint question
-        var title = "Set Theory - Algebra of Sets",
-            text = ""
+        var title = "Set Theory - Power Sets",
+            text = "A power set is a set, which is a set of all subsets for a particular set. The power set of A is denoted as " + powerA,
             set = generateSet(),
             question = "Let " + universal + " = " + set.setString + " . What is the cardinality of " + universal + " and " + empty + ", respectively?",
             answer = set.answer;
@@ -34,10 +34,10 @@
         }     
     }
 
-    window.deMorganLaws = {
+    window.powerSets = {
         questionAndAnswer : questionAndAnswer
     }
-     var setU = katex.renderToString(" = \\{a, b, c, d, e\\}");
+     var powerA = katex.renderToString("\\mathcal P\\left({A}\\right)");
      var aUnionBComp = katex.renderToString("(A \\cup B)^{\\mathsf{c}} = A^{\\mathsf{c}} \\cap B^{\\mathsf{c}}");
      var aIntersectionBComp = katex.renderToString("(A \\cap B)^{\\mathsf{c}} = A^{\\mathsf{c}} \\cup B^{\\mathsf{c}}")
 })();

@@ -20,8 +20,8 @@
 
     var questionAndAnswer = function () {
         // Learning text and checkpoint question
-        var title = "Set Theory - DeMorgan's Laws",
-            text = "Now that we have union, intersection, and complement operations, DeMorgan's Laws are useful in determining the complement of the unions and intersections of sets. DeMorgan's laws are: \n\n" + aUnionBComp + "\n" + aIntersectionBComp + "\n\nDeMorgan's laws are useful for many applications, including formal logical proofs and building circuits in your computer. It is also handy for simplifying questions about sets - by transforming a statement using DeMorgan's laws, it can make finding the solution easier.",
+        var title = "Set Theory - Counting Principles",
+            text = "We can ",
             set = generateSet(),
             question = "Let " + universal + " be " + set.universe + ", " + aEq + set.setA + ", and " + bEq + set.setB + ". What elements are within " + aUnionBC + "?" ,
             answer = set.answer;

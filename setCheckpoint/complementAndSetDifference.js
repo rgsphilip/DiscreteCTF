@@ -9,14 +9,12 @@
             printSetA = setPrint(setA),
             printSetB = setPrint(setB),
             aSymDiffB = symetricDifference(setA, setB),
-            answer = removeSubset(universe, aSymDiffB)
+            answer = arrayElemsToStrings(removeSubset(universe, aSymDiffB))
         return {
             universe : printSetU,
             setA : printSetA,
-            setB : printSetB
-            //setB : setPrint(setB)
-            //setString: setString,
-            //answer: answer
+            setB : printSetB,
+            answer: answer
         }
     }
 
@@ -27,15 +25,20 @@
             set = generateSet(),
             question = "Let " + universal + " be " + set.universe + ", " + aEq + set.setA + ", and " + bEq + set.setB + ". What elements are within " + aSymDiffBComp + "? \n(hint: drawing out the sets will help with this one!)",
             answerType = answerBox,
-            answer = set.answer;
+            answer = set.answer,
+            aSymDiffB = set.aSymDiffB,
+            setA = set.setA
         return {
             title: title,
             text: text,
             question: question,
             answerType: answerType,
-            answer: answer
+            answer: answer,
+            aSymDiffB: aSymDiffB,
+            setA: setA
         }     
     }
+    
     var a = katex.renderToString("A");
     var b = katex.renderToString("B");
     var aEq = katex.renderToString("A = ");
@@ -57,3 +60,4 @@
         questionAndAnswer : questionAndAnswer
     }
 })();
+

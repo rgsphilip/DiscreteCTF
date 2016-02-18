@@ -2,7 +2,9 @@ var topics = [
     'setDefinition',
     'subsets',
     'emptyAndUniversalSets',
-    'unionIntersection'
+    'unionIntersection',
+    'complementAndSetDifference',
+    'deMorganLaws'
 ]
 
 
@@ -10,7 +12,9 @@ var data = {
     setDefinition: setDefinition.questionAndAnswer(),
     subsets: subsets.questionAndAnswer(),
     emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
-    unionIntersection: unionIntersection.questionAndAnswer()
+    unionIntersection: unionIntersection.questionAndAnswer(),
+    complementAndSetDifference: complementAndSetDifference.questionAndAnswer(),
+    deMorganLaws: deMorganLaws.questionAndAnswer()
 }
 
 var topicIndex = 0;
@@ -53,6 +57,7 @@ $('.prevButton').click(function() {
     }
 });
 
+// SUPPORTING FUNCTIONS FOR ANSWER VALIDATION
 function goodJob() {
     $('.feedback').text("Great job, keep on going!");
     $('.nextButton').removeAttr("disabled");
@@ -60,17 +65,32 @@ function goodJob() {
 function tryAgain() {
     $('.feedback').text("Try again");
 }
+function transformUserInput(answerString) {
+    var result = answerString.split(/[\s,]+/);
+    if(result === -1) { //i.e., there are no spaces or commas
+        result = [answerString];
+    }
+    return result;
+}
 
+//ANSWER VALIDATION FUNCTION
 $('.checkButton').click(function(){
     //There are 3 main types of questions to check: text answers, checkboxes, or radio buttons. This checks for which one, then handles checking the answer for correctness.
     if($('.checkAns form').hasClass("textAns")) {
         //if it's a text answer box:
-        var $answer = parseInt($('.textAns input').val()); 
-        if ($answer === data[topics[topicIndex]].answer) {
-            goodJob();
-        } else {
-            tryAgain();
+        var $answer = $('.textAns input').val();
+        var userAnswerArray = _.uniq(transformUserInput($answer)); //_.uniq removes duplicates
+        var correctAnswer = _.uniq(data[topics[topicIndex]].answer);
+        if(userAnswerArray.length !== correctAnswer.length) {
+            return tryAgain();
         }
+        var len = correctAnswer.length;
+        for(var i = 0; i < len; i++) {
+            if ($.inArray(correctAnswer[i], userAnswerArray) === -1) {
+                return tryAgain();   
+            }
+        }
+        return goodJob();
     } else if ($('.checkAns form').hasClass("checkboxAns")) {
         //if it's a checkbox answer:
         var answerArray = data[topics[topicIndex]].answer; //contains the indices of the correct answers
@@ -103,8 +123,6 @@ $('.checkButton').click(function(){
         } else {
             tryAgain();
         }
-    }
-    
-    
+    }  
 });
 

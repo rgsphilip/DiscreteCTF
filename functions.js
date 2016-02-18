@@ -22,6 +22,16 @@ window.properSubset = properSubset;
 var setAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'v', 'w', 'x', 'y', 'z'];
 window.setAlphabet = setAlphabet;
 
+var arrayElemsToStrings = function(arrayInput) {
+    var array = _.clone(arrayInput);
+    var len = array.length;
+    for(var i = 0; i < len; i++) {
+        array[i] = array[i].toString();
+    }
+    return array;
+}
+
+
 // ANSWER TYPES (different types of answers that the Checkpoint Questions will answer)
 var answerBox = '<form class="textAns">Answer: <input type="text" name="answer" value=""></form>';
 window.answerbox = answerBox;

@@ -3,7 +3,7 @@
         //Generates the specific set used in the checkpoint question
         var set = setGenerate(5, 6),
             setString = setPrint(set),
-            answer = 5;
+            answer = ["5"];
         return {
             set : set,
             setString: setString,
