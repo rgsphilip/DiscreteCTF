@@ -1,5 +1,5 @@
 var topics = [
-    'algebraOfSets'
+    'powerSets'
 ]
 
 
@@ -7,7 +7,7 @@ var data = {
     //setDefinition: setDefinition.questionAndAnswer(),
     //subsets: subsets.questionAndAnswer(),
     //emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
-    algebraOfSets: algebraOfSets.questionAndAnswer()
+    powerSets: powerSets.questionAndAnswer()
 }
 
 var topicIndex = 0;

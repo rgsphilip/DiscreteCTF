@@ -21,7 +21,7 @@
     var questionAndAnswer = function () {
         // Learning text and checkpoint question
         var title = "Set Theory - Counting Principles",
-            text = "We can ",
+            text = "We can reason about the cardinality of sets when using operators. ",
             set = generateSet(),
             question = "Let " + universal + " be " + set.universe + ", " + aEq + set.setA + ", and " + bEq + set.setB + ". What elements are within " + aUnionBC + "?" ,
             answer = set.answer;

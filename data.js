@@ -5,7 +5,8 @@ var topics = [
     'unionIntersection',
     'complementAndSetDifference',
     'deMorganLaws',
-    'algebraOfSets'
+    'algebraOfSets',
+    'powerSets'
 ]
 
 
@@ -17,6 +18,7 @@ var data = {
     complementAndSetDifference: complementAndSetDifference.questionAndAnswer(),
     deMorganLaws: deMorganLaws.questionAndAnswer(),
     algebraOfSets: algebraOfSets.questionAndAnswer(),
+    powerSets: powerSets.questionAndAnswer()
     
 }
 
