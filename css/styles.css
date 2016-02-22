@@ -118,3 +118,12 @@ nav a {
 .checkButton {
     margin-top: 10px;
 }
+
+.multTextAns input{
+    width: 30px;
+    
+}
+.multTextAns {
+    display: inline-block;
+    margin: 5px 0 0 0;
+}

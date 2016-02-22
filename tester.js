@@ -1,5 +1,5 @@
 var topics = [
-    'powerSets'
+    'algebraOfSets'
 ]
 
 
@@ -7,7 +7,7 @@ var data = {
     //setDefinition: setDefinition.questionAndAnswer(),
     //subsets: subsets.questionAndAnswer(),
     //emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
-    powerSets: powerSets.questionAndAnswer()
+    algebraOfSets: algebraOfSets.questionAndAnswer()
 }
 
 var topicIndex = 0;
@@ -81,7 +81,27 @@ $('.checkButton').click(function(){
         for(var i = 0; i < len; i++) {
             if ($.inArray(correctAnswer[i], userAnswerArray) === -1) {
                 return tryAgain();   
-            }
+            }	       
+        }
+        return goodJob();
+    } else if($('.checkAns form').hasClass("multTextAns")) {
+        var correctAnswer = data[topics[topicIndex]].answer;
+        var userArray = [];
+        var i = 0;
+        $(".multTextAns input").each(function(index, element){
+            userArray[i] = ($(element).val()).toString();
+            console.log(userArray[i]);
+            i++;
+        });
+        if(userArray.length !== correctAnswer.length) {
+            return tryAgain();
+        }
+        var len = correctAnswer.length;
+        console.log(userArray);
+        for(var i = 0; i < len; i++) {
+            if (userArray[i] !== correctAnswer[i]) {
+                return tryAgain();   
+            }	       
         }
         return goodJob();
     } else if ($('.checkAns form').hasClass("checkboxAns")) {

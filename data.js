@@ -88,7 +88,27 @@ $('.checkButton').click(function(){
         for(var i = 0; i < len; i++) {
             if ($.inArray(correctAnswer[i], userAnswerArray) === -1) {
                 return tryAgain();   
-            }
+            }	       
+        }
+        return goodJob();
+    } else if($('.checkAns form').hasClass("multTextAns")) {
+        var userArray = [];
+        var i = 0;
+        $('input[type=text]').each(function(){
+            userArray[i] = $('.multTextAns input').val();
+            i++;
+        });
+        userArray = _.uniq(transformUserInput(userArray));
+        var correctAnswer = _.uniq(data[topics[topicIndex]].answer);
+        if(userAnswerArray.length !== correctAnswer.length) {
+            return tryAgain();
+        }
+        var len = correctAnswer.length;
+        console.log(userArray);
+        for(var i = 0; i < len; i++) {
+            if (userArray[i] !== correctAnswer[i]) {
+                return tryAgain();   
+            }	       
         }
         return goodJob();
     } else if ($('.checkAns form').hasClass("checkboxAns")) {

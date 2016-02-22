@@ -34,7 +34,10 @@ var arrayElemsToStrings = function(arrayInput) {
 
 // ANSWER TYPES (different types of answers that the Checkpoint Questions will answer)
 var answerBox = '<form class="textAns">Answer: <input type="text" name="answer" value=""></form>';
-window.answerbox = answerBox;
+window.answerBox = answerBox;
+
+var answerOptions = '<form class="multTextAns"><input type="text" name="answer" value=""></form>';
+window.answerOptions = answerOptions;
 
 var checkBoxFunc = function(array) {
     var result = '<form class="checkboxAns">Pick the correct answer(s): <br>';
