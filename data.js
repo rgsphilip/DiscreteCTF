@@ -4,7 +4,8 @@ var topics = [
     'emptyAndUniversalSets',
     'unionIntersection',
     'complementAndSetDifference',
-    'deMorganLaws'
+    'deMorganLaws',
+    'algebraOfSets'
 ]
 
 
@@ -14,7 +15,9 @@ var data = {
     emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
     unionIntersection: unionIntersection.questionAndAnswer(),
     complementAndSetDifference: complementAndSetDifference.questionAndAnswer(),
-    deMorganLaws: deMorganLaws.questionAndAnswer()
+    deMorganLaws: deMorganLaws.questionAndAnswer(),
+    algebraOfSets: algebraOfSets.questionAndAnswer(),
+    
 }
 
 var topicIndex = 0;
@@ -92,15 +95,15 @@ $('.checkButton').click(function(){
         }
         return goodJob();
     } else if($('.checkAns form').hasClass("multTextAns")) {
+        var correctAnswer = data[topics[topicIndex]].answer;
         var userArray = [];
         var i = 0;
-        $('input[type=text]').each(function(){
-            userArray[i] = $('.multTextAns input').val();
+        $(".multTextAns input").each(function(index, element){
+            userArray[i] = ($(element).val()).toString();
+            console.log(userArray[i]);
             i++;
         });
-        userArray = _.uniq(transformUserInput(userArray));
-        var correctAnswer = _.uniq(data[topics[topicIndex]].answer);
-        if(userAnswerArray.length !== correctAnswer.length) {
+        if(userArray.length !== correctAnswer.length) {
             return tryAgain();
         }
         var len = correctAnswer.length;
@@ -145,4 +148,3 @@ $('.checkButton').click(function(){
         }
     }  
 });
-
