@@ -1,13 +1,11 @@
 var topics = [
-    'powerSets'
+    'countingPrinciple'
 ]
 
 
 var data = {
-    //setDefinition: setDefinition.questionAndAnswer(),
-    //subsets: subsets.questionAndAnswer(),
-    //emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
-    powerSets: powerSets.questionAndAnswer()
+    countingPrinciple: countingPrinciple.questionAndAnswer()
+    
 }
 
 var topicIndex = 0;
@@ -138,3 +136,4 @@ $('.checkButton').click(function(){
         }
     }  
 });
+

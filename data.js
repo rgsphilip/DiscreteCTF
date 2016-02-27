@@ -6,7 +6,8 @@ var topics = [
     'complementAndSetDifference',
     'deMorganLaws',
     'algebraOfSets',
-    'powerSets'
+    'powerSets',
+    'countingPrinciple'
 ]
 
 
@@ -18,8 +19,8 @@ var data = {
     complementAndSetDifference: complementAndSetDifference.questionAndAnswer(),
     deMorganLaws: deMorganLaws.questionAndAnswer(),
     algebraOfSets: algebraOfSets.questionAndAnswer(),
-    powerSets: powerSets.questionAndAnswer()
-    
+    powerSets: powerSets.questionAndAnswer(),
+    countingPrinciple: countingPrinciple.questionAndAnswer()
 }
 
 var topicIndex = 0;

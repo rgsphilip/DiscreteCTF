@@ -94,6 +94,10 @@ var setPrint = function(array) {
 }
 window.setPrint = setPrint;
 
+var charPrint = function(num) {
+    return katex.renderToString(num.toString());
+}
+
 var setArrayPrint = function(array) {
     //array is an array of setArrays. returns an array of setArrays strings appropriate for printing.
     var result = [];

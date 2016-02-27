@@ -28,6 +28,11 @@ header {
     width: 100%;
 }
 
+.longPara {
+  margin: 0 20%;
+  font-size: 1.2em;
+}
+
 footer {
     
     background: lightseagreen;
@@ -35,7 +40,8 @@ footer {
     color: lightcyan;
     position: fixed;
     bottom: 0;
-    margin-top: 20px
+    margin-top: 20px;
+    padding-top: -5px;
 }
 
 /* NAVIGATION BAR ****************************/
@@ -79,7 +85,8 @@ nav a {
 }
 
 .wrap {
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 20px);
+    padding: 0 0 60px;
 }
 
 /* DASHBOARD *****************************************/
@@ -123,11 +130,12 @@ nav a {
     width: 30px;
     
 }
-.multTextAns {
+.multTextAns, {
     display: inline-block;
     margin: 5px 0 0 0;
 }
 
-.checkboxAns input{
+.checkboxAns input, 
+radioAns input {
     margin-right: 10px;
 }
