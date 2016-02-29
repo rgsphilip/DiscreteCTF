@@ -1,42 +1,24 @@
-
-//LEARN MATERIAL
 var topics = [
-    'setDefinition',
-    'subsets',
-    'emptyAndUniversalSets',
-    'unionIntersection',
-    'complementAndSetDifference',
-    'deMorganLaws',
-    'algebraOfSets',
-    'powerSets',
-    'countingPrinciple'
+    'subsets1'
 ]
 
+var topicArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 var data = {
-    setDefinition: setDefinition.questionAndAnswer(),
-    subsets: subsets.questionAndAnswer(),
-    emptyAndUniversalSets: emptyAndUniversalSets.questionAndAnswer(),
-    unionIntersection: unionIntersection.questionAndAnswer(),
-    complementAndSetDifference: complementAndSetDifference.questionAndAnswer(),
-    deMorganLaws: deMorganLaws.questionAndAnswer(),
-    algebraOfSets: algebraOfSets.questionAndAnswer(),
-    powerSets: powerSets.questionAndAnswer(),
-    countingPrinciple: countingPrinciple.questionAndAnswer()
+    subsets1: subsets1.questionAndAnswer(),
 }
 
 var topicIndex = 0;
 var len = topics.length - 1;
 function setContent(ix) {
     $('.learnTitle').text(data[topics[ix]].title);
-    $('.learnContent').html(data[topics[ix]].text);
     $('.learnQuestion').html(data[topics[ix]].question);
     $('.learnAnswer').replaceWith($(data[topics[ix]].answerType).addClass('learnAnswer'));
 }
 
 setContent(topicIndex);
 
-$('.nextButton').click(function() {
+$('.nextQuestion').click(function() {
     if(topicIndex < len)
     {
         $(this).attr("disabled", "disabled");
@@ -46,29 +28,13 @@ $('.nextButton').click(function() {
         if (topicIndex === len) {
             $(this).attr("disabled", "disabled");
         }
-        if(topicIndex === 1) {
-            $('.prevButton').removeAttr("disabled");
-        }
-    }
-});
-
-
-$('.prevButton').click(function() {
-    if (topicIndex > 0) {
-        topicIndex -=1;
-        setContent(topicIndex);
-        $('.feedback').text("");
-        //$('.nextButton').removeAttr("disabled");
-        if (topicIndex === 0) {
-            $(this).attr("disabled", "disabled");   
-        }
     }
 });
 
 // SUPPORTING FUNCTIONS FOR ANSWER VALIDATION
 function goodJob() {
     $('.feedback').text("Great job, keep on going!");
-    $('.nextButton').removeAttr("disabled");
+    $('.nextQuestion').removeAttr("disabled");
 }
 function tryAgain() {
     $('.feedback').text("Try again");
@@ -84,6 +50,7 @@ function transformUserInput(answerString) {
 //ANSWER VALIDATION FUNCTION
 $('.checkButton').click(function(){
     //There are 3 main types of questions to check: text answers, checkboxes, or radio buttons. This checks for which one, then handles checking the answer for correctness.
+    $('.checkButton').attr("disabled", "disabled")
     if($('.checkAns form').hasClass("textAns")) {
         //if it's a text answer box:
         var $answer = $('.textAns input').val();
