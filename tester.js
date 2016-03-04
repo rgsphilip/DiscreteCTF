@@ -1,10 +1,13 @@
 var topics = [
+    'algebraOfSets',
     'countingPrinciple'
+    
 ]
 
 
 var data = {
-    countingPrinciple: countingPrinciple.questionAndAnswer()
+    countingPrinciple: countingPrinciple.questionAndAnswer(),
+    algebraOfSets: algebraOfSets.questionAndAnswer()
     
 }
 

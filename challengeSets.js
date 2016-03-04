@@ -1,11 +1,15 @@
 var topics = [
-    'subsets1'
+    'subsets1',
+    'subsets2',
+    'subsets3'
 ]
 
 var topicArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 var data = {
     subsets1: subsets1.questionAndAnswer(),
+    subsets2: subsets2.questionAndAnswer(),
+    subsets3: subsets3.questionAndAnswer()
 }
 
 var topicIndex = 0;
@@ -35,9 +39,11 @@ $('.nextQuestion').click(function() {
 function goodJob() {
     $('.feedback').text("Great job, keep on going!");
     $('.nextQuestion').removeAttr("disabled");
+    //need to add in something about the array here
 }
 function tryAgain() {
     $('.feedback').text("Try again");
+    //need to add in something about the array here
 }
 function transformUserInput(answerString) {
     var result = answerString.split(/[\s,]+/);
@@ -50,7 +56,7 @@ function transformUserInput(answerString) {
 //ANSWER VALIDATION FUNCTION
 $('.checkButton').click(function(){
     //There are 3 main types of questions to check: text answers, checkboxes, or radio buttons. This checks for which one, then handles checking the answer for correctness.
-    $('.checkButton').attr("disabled", "disabled")
+    //$('.checkButton').attr("disabled", "disabled")
     if($('.checkAns form').hasClass("textAns")) {
         //if it's a text answer box:
         var $answer = $('.textAns input').val();

@@ -108,6 +108,22 @@ var setArrayPrint = function(array) {
     return result;
 }
 
+// var isASubsetof = function(array1, subArray1) {
+//     var array = _.uniq(array1);
+//     var subArray = _.uniq(subArray1);
+//     var subLen = subArray.length;
+//     if (array.length < subLen) {
+//         return false;
+//     }
+//     for(var i = 0; i < subLen; i++) {
+//         if (subArray[i], userAnswerArray) === -1) {
+//                 return false;   
+//             }
+//     }
+//     return true;
+// }
+
+
 var setRemoveElem = function(arrayInput, numRemove) {
     var array = _.clone(arrayInput);
     //removes numRemove number of elements from array
